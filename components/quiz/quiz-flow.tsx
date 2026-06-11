@@ -92,12 +92,15 @@ export function QuizFlow() {
 
       <main className="flex flex-1 flex-col">
         <div className="mx-auto flex w-full max-w-xl flex-1 flex-col px-4 py-8 sm:py-10">
-          <div key={step.id} className="animate-in fade-in slide-in-from-bottom-2 duration-300">
+          <div
+            key={step.id}
+            className="animate-in fade-in slide-in-from-bottom-2 duration-300"
+          >
             {renderStep(step)}
           </div>
 
           {isMulti && (
-            <div className="sticky bottom-4 mt-8">
+            <div className="sticky bottom-0 z-10 mt-8 bg-gradient-to-t from-background via-background to-transparent pb-4 pt-6">
               <Button
                 size="lg"
                 onClick={goNext}

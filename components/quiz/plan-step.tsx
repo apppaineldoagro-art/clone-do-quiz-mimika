@@ -60,7 +60,7 @@ export function PlanStep() {
         </div>
       </div>
 
-      <div className="rounded-2xl border border-border bg-card p-5">
+      <div className="rounded-2xl bg-card p-5 shadow-[var(--shadow-card)]">
         <h2 className="font-heading text-lg font-semibold text-foreground">What's included</h2>
         <ul className="mt-3 flex flex-col gap-2.5">
           {BENEFITS.map((b) => (
@@ -120,7 +120,7 @@ export function PlanStep() {
         })}
       </div>
 
-      <Button size="lg" className="mt-6 h-14 w-full rounded-full text-base font-semibold">
+      <Button size="lg" className="mt-6 h-14 w-full rounded-full text-base font-semibold shadow-[var(--shadow-btn)]">
         Get my plan
       </Button>
 

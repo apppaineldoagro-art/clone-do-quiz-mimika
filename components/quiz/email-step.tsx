@@ -35,13 +35,13 @@ export function EmailStep({ onSubmit }: Props) {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="your@email.com"
-          className="h-14 w-full rounded-2xl border-2 border-border bg-card px-5 text-base text-foreground outline-none transition placeholder:text-muted-foreground focus:border-primary"
+          className="h-14 w-full rounded-2xl border-2 border-border bg-card px-5 text-base text-foreground shadow-[var(--shadow-card)] outline-none transition placeholder:text-muted-foreground focus:border-primary"
         />
         <Button
           type="submit"
           size="lg"
           disabled={!valid}
-          className="h-14 w-full rounded-full text-base font-semibold"
+          className="h-14 w-full rounded-full text-base font-semibold shadow-[var(--shadow-btn)]"
         >
           Show my results
         </Button>

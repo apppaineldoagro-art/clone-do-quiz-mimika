@@ -19,7 +19,7 @@ export function QuestionStep({ step, value, onSelect }: Props) {
   return (
     <div className="flex flex-col">
       {step.image && (
-        <div className="mx-auto mb-5 h-44 w-44 overflow-hidden rounded-3xl bg-muted">
+        <div className="mx-auto mb-5 h-44 w-44 overflow-hidden rounded-3xl bg-muted shadow-[var(--shadow-card)]">
           <Image
             src={step.image || "/placeholder.svg"}
             alt=""
@@ -30,12 +30,12 @@ export function QuestionStep({ step, value, onSelect }: Props) {
         </div>
       )}
 
-      <div className="mb-6 text-center">
-        <h1 className="text-balance font-heading text-2xl font-semibold leading-tight text-foreground sm:text-3xl">
+      <div className="mb-7 text-center">
+        <h1 className="text-balance font-heading text-[26px] font-semibold leading-[1.15] tracking-tight text-foreground sm:text-3xl">
           {step.title}
         </h1>
         {step.subtitle && (
-          <p className="mt-2 text-pretty text-sm text-muted-foreground">{step.subtitle}</p>
+          <p className="mt-2.5 text-pretty text-sm leading-relaxed text-muted-foreground">{step.subtitle}</p>
         )}
       </div>
 
@@ -49,13 +49,15 @@ export function QuestionStep({ step, value, onSelect }: Props) {
                 type="button"
                 onClick={() => onSelect(opt.value)}
                 className={cn(
-                  "relative flex flex-col items-center justify-between gap-3 rounded-2xl bg-card px-4 pb-5 pt-4 text-center transition-all",
-                  selected ? "ring-2 ring-primary" : "ring-1 ring-transparent hover:ring-border",
+                  "relative flex flex-col items-center justify-between gap-3 rounded-3xl bg-card px-4 pb-5 pt-4 text-center shadow-[var(--shadow-card)] transition-all duration-200 active:scale-[0.98]",
+                  selected
+                    ? "ring-2 ring-primary"
+                    : "ring-1 ring-border/60 hover:ring-primary/40",
                 )}
               >
                 <span
                   className={cn(
-                    "absolute left-3 top-3 flex h-5 w-5 items-center justify-center rounded-md border transition",
+                    "absolute left-3 top-3 flex h-5 w-5 items-center justify-center rounded-full border transition",
                     selected
                       ? "border-primary bg-primary text-primary-foreground"
                       : "border-muted-foreground/30 bg-background",
@@ -91,24 +93,33 @@ export function QuestionStep({ step, value, onSelect }: Props) {
                 type="button"
                 onClick={() => onSelect(opt.value)}
                 className={cn(
-                  "flex items-center gap-3 rounded-2xl bg-card px-5 py-4 text-left transition-all",
-                  selected ? "ring-2 ring-primary" : "ring-1 ring-transparent hover:ring-border",
+                  "flex items-center gap-3.5 rounded-2xl bg-card px-5 py-4 text-left shadow-[var(--shadow-card)] transition-all duration-200 active:scale-[0.99]",
+                  selected
+                    ? "ring-2 ring-primary"
+                    : "ring-1 ring-border/60 hover:ring-primary/40",
                 )}
               >
-                {opt.emoji && <span className="text-2xl leading-none">{opt.emoji}</span>}
-                <span className="flex-1 text-base font-medium text-foreground">{opt.label}</span>
-                {isMulti && (
+                {opt.emoji && (
                   <span
                     className={cn(
-                      "flex h-6 w-6 shrink-0 items-center justify-center rounded-md border transition",
-                      selected
-                        ? "border-primary bg-primary text-primary-foreground"
-                        : "border-muted-foreground/30 bg-background",
+                      "flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-2xl leading-none transition-colors",
+                      selected ? "bg-accent" : "bg-muted",
                     )}
                   >
-                    {selected && <Check className="h-4 w-4" strokeWidth={3} />}
+                    {opt.emoji}
                   </span>
                 )}
+                <span className="flex-1 text-base font-medium text-foreground">{opt.label}</span>
+                <span
+                  className={cn(
+                    "flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-2 transition",
+                    selected
+                      ? "border-primary bg-primary text-primary-foreground"
+                      : "border-muted-foreground/25",
+                  )}
+                >
+                  {selected && <Check className="h-3.5 w-3.5" strokeWidth={3} />}
+                </span>
               </button>
             )
           })}
@@ -116,7 +127,7 @@ export function QuestionStep({ step, value, onSelect }: Props) {
       )}
 
       {step.note && (
-        <div className="mt-6 rounded-2xl border border-border bg-secondary/50 p-4 text-left">
+        <div className="mt-6 rounded-2xl border border-border bg-accent/40 p-4 text-left">
           <h4 className="font-heading text-sm font-semibold text-foreground">{step.note.title}</h4>
           <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{step.note.body}</p>
         </div>

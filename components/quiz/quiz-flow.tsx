@@ -154,7 +154,7 @@ export function QuizFlow() {
                 size="lg"
                 onClick={goNext}
                 disabled={!multiHasSelection}
-                className="h-14 w-full rounded-full text-base font-semibold shadow-lg"
+                className="h-14 w-full rounded-full text-base font-semibold shadow-[var(--shadow-btn)]"
               >
                 Continue
               </Button>

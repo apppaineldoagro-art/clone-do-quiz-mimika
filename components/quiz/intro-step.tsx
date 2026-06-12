@@ -20,7 +20,7 @@ export function IntroStep({ onStart }: Props) {
         Take a 1-minute quiz and get a personalized face yoga program tailored to your face, skin, and lifestyle.
       </p>
 
-      <div className="relative my-7 aspect-[4/3] w-full max-w-md overflow-hidden rounded-3xl bg-muted">
+      <div className="relative my-7 aspect-[4/3] w-full max-w-md overflow-hidden rounded-[2rem] bg-muted shadow-[var(--shadow-card)]">
         <Image
           src="/quiz/intro-hero.webp"
           alt="Woman practicing face yoga"
@@ -34,24 +34,24 @@ export function IntroStep({ onStart }: Props) {
       <Button
         size="lg"
         onClick={onStart}
-        className="h-14 w-full max-w-md rounded-full text-base font-semibold"
+        className="h-14 w-full max-w-md rounded-full text-base font-semibold shadow-[var(--shadow-btn)]"
       >
         Take the quiz
       </Button>
 
-      <div className="mt-5 flex items-center justify-center gap-6 text-xs text-muted-foreground">
+      <div className="mt-6 flex w-full max-w-md items-center justify-around rounded-2xl bg-card px-4 py-4 text-xs text-muted-foreground shadow-[var(--shadow-card)]">
         <span className="flex flex-col items-center gap-0.5">
-          <strong className="text-base font-semibold text-foreground">1M+</strong>
+          <strong className="font-heading text-xl font-semibold text-foreground">1M+</strong>
           users
         </span>
         <span className="h-8 w-px bg-border" />
         <span className="flex flex-col items-center gap-0.5">
-          <strong className="text-base font-semibold text-foreground">4.8★</strong>
+          <strong className="font-heading text-xl font-semibold text-foreground">4.8★</strong>
           avg. rating
         </span>
         <span className="h-8 w-px bg-border" />
         <span className="flex flex-col items-center gap-0.5">
-          <strong className="text-base font-semibold text-foreground">28</strong>
+          <strong className="font-heading text-xl font-semibold text-foreground">28</strong>
           days
         </span>
       </div>

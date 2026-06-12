@@ -17,7 +17,7 @@ export function InfoStep({ step, onNext }: Props) {
       </h1>
 
       {step.image && (
-        <div className="relative my-6 aspect-[4/3] w-full max-w-md overflow-hidden rounded-3xl bg-muted">
+        <div className="relative my-6 aspect-[4/3] w-full max-w-md overflow-hidden rounded-[2rem] bg-muted shadow-[var(--shadow-card)]">
           <Image
             src={step.image || "/placeholder.svg"}
             alt=""
@@ -39,8 +39,8 @@ export function InfoStep({ step, onNext }: Props) {
       )}
 
       {step.stat && (
-        <div className="mt-6 rounded-2xl border border-border bg-secondary/50 px-6 py-5">
-          <p className="font-heading text-2xl font-semibold text-primary">{step.stat.value}</p>
+        <div className="mt-6 rounded-2xl bg-card px-7 py-5 shadow-[var(--shadow-card)]">
+          <p className="font-heading text-3xl font-semibold text-primary">{step.stat.value}</p>
           <p className="mt-1 text-sm text-muted-foreground">{step.stat.label}</p>
         </div>
       )}
@@ -48,7 +48,7 @@ export function InfoStep({ step, onNext }: Props) {
       <Button
         size="lg"
         onClick={onNext}
-        className="mt-7 h-14 w-full max-w-md rounded-full text-base font-semibold"
+        className="mt-7 h-14 w-full max-w-md rounded-full text-base font-semibold shadow-[var(--shadow-btn)]"
       >
         {step.cta}
       </Button>

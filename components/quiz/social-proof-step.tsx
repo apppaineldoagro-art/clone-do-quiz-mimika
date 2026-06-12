@@ -40,7 +40,7 @@ export function SocialProofStep({ onNext }: Props) {
         />
       </div>
 
-      <div className="relative mt-6 w-full max-w-md overflow-hidden rounded-3xl">
+      <div className="relative mt-6 w-full max-w-md overflow-hidden rounded-[2rem] shadow-[var(--shadow-card)]">
         <Image
           src="/quiz/social-collage.webp"
           alt="Mulheres felizes que usam o Mimika"
@@ -56,7 +56,7 @@ export function SocialProofStep({ onNext }: Props) {
         <Button
           size="lg"
           onClick={onNext}
-          className="h-14 w-full max-w-md rounded-2xl text-base font-semibold"
+          className="h-14 w-full max-w-md rounded-full text-base font-semibold shadow-[var(--shadow-btn)]"
         >
           Próximo
         </Button>

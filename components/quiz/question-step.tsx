@@ -49,20 +49,34 @@ export function QuestionStep({ step, value, onSelect }: Props) {
                 type="button"
                 onClick={() => onSelect(opt.value)}
                 className={cn(
-                  "relative flex flex-col items-center justify-center gap-3 rounded-2xl px-4 py-8 text-center transition-all",
-                  selected ? "bg-accent ring-2 ring-primary" : "bg-secondary hover:bg-accent/60",
+                  "relative flex flex-col items-center justify-between gap-3 rounded-2xl bg-card px-4 pb-5 pt-4 text-center transition-all",
+                  selected ? "ring-2 ring-primary" : "ring-1 ring-transparent hover:ring-border",
                 )}
               >
                 <span
                   className={cn(
-                    "absolute right-3 top-3 flex h-5 w-5 items-center justify-center rounded-md border transition",
-                    selected ? "border-primary bg-primary text-primary-foreground" : "border-muted-foreground/30 bg-card",
+                    "absolute left-3 top-3 flex h-5 w-5 items-center justify-center rounded-md border transition",
+                    selected
+                      ? "border-primary bg-primary text-primary-foreground"
+                      : "border-muted-foreground/30 bg-background",
                   )}
                 >
                   {selected && <Check className="h-3.5 w-3.5" strokeWidth={3} />}
                 </span>
-                {opt.emoji && <span className="text-4xl leading-none">{opt.emoji}</span>}
-                <span className="text-base font-medium leading-tight text-foreground">{opt.label}</span>
+                {opt.icon ? (
+                  <span className="flex h-24 w-24 items-center justify-center">
+                    <Image
+                      src={opt.icon || "/placeholder.svg"}
+                      alt=""
+                      width={120}
+                      height={120}
+                      className="h-full w-full object-contain"
+                    />
+                  </span>
+                ) : (
+                  opt.emoji && <span className="mt-4 text-4xl leading-none">{opt.emoji}</span>
+                )}
+                <span className="text-pretty text-[15px] font-medium leading-tight text-foreground">{opt.label}</span>
               </button>
             )
           })}
@@ -77,8 +91,8 @@ export function QuestionStep({ step, value, onSelect }: Props) {
                 type="button"
                 onClick={() => onSelect(opt.value)}
                 className={cn(
-                  "flex items-center gap-3 rounded-2xl px-5 py-4 text-left transition-all",
-                  selected ? "bg-accent ring-2 ring-primary" : "bg-secondary hover:bg-accent/60",
+                  "flex items-center gap-3 rounded-2xl bg-card px-5 py-4 text-left transition-all",
+                  selected ? "ring-2 ring-primary" : "ring-1 ring-transparent hover:ring-border",
                 )}
               >
                 {opt.emoji && <span className="text-2xl leading-none">{opt.emoji}</span>}
@@ -89,7 +103,7 @@ export function QuestionStep({ step, value, onSelect }: Props) {
                       "flex h-6 w-6 shrink-0 items-center justify-center rounded-md border transition",
                       selected
                         ? "border-primary bg-primary text-primary-foreground"
-                        : "border-muted-foreground/30 bg-card",
+                        : "border-muted-foreground/30 bg-background",
                     )}
                   >
                     {selected && <Check className="h-4 w-4" strokeWidth={3} />}

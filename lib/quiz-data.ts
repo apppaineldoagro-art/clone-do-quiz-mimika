@@ -15,6 +15,7 @@ export type Option = {
   value: string
   label: string
   emoji?: string
+  icon?: string
 }
 
 export type QuizStep =
@@ -83,10 +84,10 @@ export const STEPS: QuizStep[] = [
     title: "What age-related change worries you the most?",
     layout: "grid",
     options: [
-      { value: "drooping", label: "Facial Drooping", emoji: "😟" },
-      { value: "sagging", label: "Sagging skin or Wrinkles", emoji: "😔" },
-      { value: "fat", label: "Excess Fat or Puffiness", emoji: "🫥" },
-      { value: "imbalance", label: "Imbalance in Proportions", emoji: "🙃" },
+      { value: "drooping", label: "Facial Drooping", icon: "/quiz/icon-drooping.png" },
+      { value: "sagging", label: "Sagging skin or Wrinkles", icon: "/quiz/icon-sagging.png" },
+      { value: "fat", label: "Excess Fat or Puffiness", icon: "/quiz/icon-fat.png" },
+      { value: "imbalance", label: "Imbalance in Proportions", icon: "/quiz/icon-imbalance.png" },
     ],
   },
   {

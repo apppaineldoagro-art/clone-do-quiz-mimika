@@ -14,6 +14,7 @@ export const SECTIONS: Section[] = [
 export type Option = {
   value: string
   label: string
+  emoji?: string
 }
 
 export type QuizStep =
@@ -28,6 +29,9 @@ export type QuizStep =
       title: string
       subtitle?: string
       image?: string
+      // "list" = vertical rows (emoji on the left)
+      // "grid" = 2-column cards with a large emoji on top
+      layout?: "list" | "grid"
       options: Option[]
       note?: { title: string; body: string }
     }
@@ -66,9 +70,10 @@ export const STEPS: QuizStep[] = [
     id: "notice-changes",
     section: "goals",
     title: "Do you notice any facial age-related changes?",
+    layout: "list",
     options: [
-      { value: "yes", label: "Yes" },
-      { value: "no", label: "No" },
+      { value: "yes", label: "Yes", emoji: "🥺" },
+      { value: "no", label: "No", emoji: "🙆‍♀️" },
     ],
   },
   {
@@ -76,11 +81,12 @@ export const STEPS: QuizStep[] = [
     id: "worries-most",
     section: "goals",
     title: "What age-related change worries you the most?",
+    layout: "grid",
     options: [
-      { value: "drooping", label: "Facial Drooping" },
-      { value: "sagging", label: "Sagging skin or Wrinkles" },
-      { value: "fat", label: "Excess Fat or Puffiness" },
-      { value: "imbalance", label: "Imbalance in Proportions" },
+      { value: "drooping", label: "Facial Drooping", emoji: "😟" },
+      { value: "sagging", label: "Sagging skin or Wrinkles", emoji: "😔" },
+      { value: "fat", label: "Excess Fat or Puffiness", emoji: "🫥" },
+      { value: "imbalance", label: "Imbalance in Proportions", emoji: "🙃" },
     ],
   },
   {
@@ -88,11 +94,12 @@ export const STEPS: QuizStep[] = [
     id: "improve-eyes",
     section: "goals",
     title: "Which of these are you looking to improve?",
+    layout: "grid",
     options: [
-      { value: "eyelids", label: "Drooping Eyelids" },
-      { value: "eye-bags", label: "Eye Bags" },
-      { value: "puffiness", label: "Puffiness" },
-      { value: "under-eye", label: "Under-Eye Wrinkles" },
+      { value: "eyelids", label: "Drooping Eyelids", emoji: "😪" },
+      { value: "eye-bags", label: "Eye Bags", emoji: "😣" },
+      { value: "puffiness", label: "Puffiness", emoji: "😶‍🌫️" },
+      { value: "under-eye", label: "Under-Eye Wrinkles", emoji: "😬" },
     ],
   },
   {
@@ -100,11 +107,12 @@ export const STEPS: QuizStep[] = [
     id: "improve-lower",
     section: "goals",
     title: "Which of these are you looking to improve?",
+    layout: "grid",
     options: [
-      { value: "double-chin", label: "Double Chin" },
-      { value: "saggy-neck", label: "Saggy Neck" },
-      { value: "cheekbones", label: "Cheekbones" },
-      { value: "thin-lips", label: "Thin Lips" },
+      { value: "double-chin", label: "Double Chin", emoji: "🙂" },
+      { value: "saggy-neck", label: "Saggy Neck", emoji: "🦢" },
+      { value: "cheekbones", label: "Cheekbones", emoji: "💎" },
+      { value: "thin-lips", label: "Thin Lips", emoji: "👄" },
     ],
   },
   {
@@ -112,11 +120,12 @@ export const STEPS: QuizStep[] = [
     id: "wrinkles-attention",
     section: "goals",
     title: "Which wrinkles catch your attention?",
+    layout: "grid",
     options: [
-      { value: "nasolabial", label: "Nasolabial Fold" },
-      { value: "fine-lines", label: "Full-face Fine Lines" },
-      { value: "forehead", label: "Forehead Creases" },
-      { value: "deep-line", label: "Full-face Deep Line" },
+      { value: "nasolabial", label: "Nasolabial Fold", emoji: "😮" },
+      { value: "fine-lines", label: "Full-face Fine Lines", emoji: "〰️" },
+      { value: "forehead", label: "Forehead Creases", emoji: "😯" },
+      { value: "deep-line", label: "Full-face Deep Line", emoji: "➰" },
     ],
   },
   {
@@ -124,11 +133,12 @@ export const STEPS: QuizStep[] = [
     id: "faced",
     section: "goals",
     title: "Which of these have you faced?",
+    layout: "grid",
     options: [
-      { value: "tired", label: "Tired look" },
-      { value: "thin-skin", label: "Thin skin" },
-      { value: "dry", label: "Dry or itchy skin" },
-      { value: "sensitive", label: "Sensitive skin" },
+      { value: "tired", label: "Tired look", emoji: "🪞" },
+      { value: "thin-skin", label: "Thin skin", emoji: "🍃" },
+      { value: "dry", label: "Dry or itchy skin", emoji: "🌵" },
+      { value: "sensitive", label: "Sensitive skin", emoji: "🪶" },
     ],
   },
   {
@@ -146,9 +156,10 @@ export const STEPS: QuizStep[] = [
     id: "routine-time",
     section: "lifestyle",
     title: "How long should your self-care routine take?",
+    layout: "list",
     options: [
-      { value: "15-less", label: "15 mins or less a day" },
-      { value: "20-more", label: "At least 20 min. a day" },
+      { value: "15-less", label: "15 mins or less a day", emoji: "⏱️" },
+      { value: "20-more", label: "At least 20 min. a day", emoji: "⏰" },
     ],
   },
   {
@@ -156,9 +167,10 @@ export const STEPS: QuizStep[] = [
     id: "when-practice",
     section: "lifestyle",
     title: "We got you! When would you like to practice self-care?",
+    layout: "list",
     options: [
-      { value: "morning", label: "Morning" },
-      { value: "evening", label: "Evening" },
+      { value: "morning", label: "Morning", emoji: "🌅" },
+      { value: "evening", label: "Evening", emoji: "🌙" },
     ],
   },
   {
@@ -176,12 +188,13 @@ export const STEPS: QuizStep[] = [
     id: "unhealthy-habits",
     section: "lifestyle",
     title: "Do you engage in any of these unhealthy habits?",
+    layout: "list",
     options: [
-      { value: "smoking", label: "Smoking" },
-      { value: "drinking", label: "Drinking alcohol" },
-      { value: "junk-food", label: "Eating junk food" },
-      { value: "late", label: "Staying up late" },
-      { value: "none", label: "None of the above" },
+      { value: "smoking", label: "Smoking", emoji: "🚬" },
+      { value: "drinking", label: "Drinking alcohol", emoji: "🍷" },
+      { value: "junk-food", label: "Eating junk food", emoji: "🍔" },
+      { value: "late", label: "Staying up late", emoji: "🌃" },
+      { value: "none", label: "None of the above", emoji: "✨" },
     ],
   },
   {
@@ -189,11 +202,12 @@ export const STEPS: QuizStep[] = [
     id: "meals",
     section: "lifestyle",
     title: "How many meals do you typically eat per day?",
+    layout: "list",
     options: [
-      { value: "3", label: "Around 3 meals a day" },
-      { value: "less-3", label: "Less than 3 meals a day" },
-      { value: "depends", label: "It depends on my day" },
-      { value: "snack", label: "I'm more of a snack person" },
+      { value: "3", label: "Around 3 meals a day", emoji: "🍽️" },
+      { value: "less-3", label: "Less than 3 meals a day", emoji: "🥗" },
+      { value: "depends", label: "It depends on my day", emoji: "🤷‍♀️" },
+      { value: "snack", label: "I'm more of a snack person", emoji: "🍿" },
     ],
   },
   {
@@ -201,11 +215,12 @@ export const STEPS: QuizStep[] = [
     id: "lifestyle-activity",
     section: "lifestyle",
     title: "How would you сharacterize your lifestyle?",
+    layout: "list",
     options: [
-      { value: "very-inactive", label: "Very inactive" },
-      { value: "not-active", label: "Not really active" },
-      { value: "somewhat", label: "Somewhat active" },
-      { value: "very-active", label: "Very active" },
+      { value: "very-inactive", label: "Very inactive", emoji: "🛋️" },
+      { value: "not-active", label: "Not really active", emoji: "🚶‍♀️" },
+      { value: "somewhat", label: "Somewhat active", emoji: "🏃‍♀️" },
+      { value: "very-active", label: "Very active", emoji: "🤸‍♀️" },
     ],
   },
   {
@@ -213,11 +228,12 @@ export const STEPS: QuizStep[] = [
     id: "working-schedule",
     section: "lifestyle",
     title: "What describes your working schedule?",
+    layout: "list",
     options: [
-      { value: "9-5", label: "Weekdays, 9 to 5" },
-      { value: "night", label: "Night shift" },
-      { value: "freelancer", label: "Freelancer or contractor" },
-      { value: "no-work", label: "I don't work" },
+      { value: "9-5", label: "Weekdays, 9 to 5", emoji: "🏢" },
+      { value: "night", label: "Night shift", emoji: "🌙" },
+      { value: "freelancer", label: "Freelancer or contractor", emoji: "💻" },
+      { value: "no-work", label: "I don't work", emoji: "🏖️" },
     ],
   },
   {
@@ -225,11 +241,12 @@ export const STEPS: QuizStep[] = [
     id: "sleep",
     section: "lifestyle",
     title: "How long do you typically sleep at night?",
+    layout: "list",
     options: [
-      { value: "less-5", label: "Less than 5 hours" },
-      { value: "5-6", label: "5-6 hours" },
-      { value: "7-8", label: "7-8 hours" },
-      { value: "more-8", label: "More than 8 hours" },
+      { value: "less-5", label: "Less than 5 hours", emoji: "😵" },
+      { value: "5-6", label: "5-6 hours", emoji: "😴" },
+      { value: "7-8", label: "7-8 hours", emoji: "😌" },
+      { value: "more-8", label: "More than 8 hours", emoji: "🛌" },
     ],
   },
   {
@@ -237,11 +254,12 @@ export const STEPS: QuizStep[] = [
     id: "pregnant",
     section: "lifestyle",
     title: "Are you pregnant or breastfeeding?",
+    layout: "list",
     options: [
-      { value: "pregnant", label: "Yes, I'm pregnant" },
-      { value: "no", label: "No" },
-      { value: "breastfeeding", label: "Breastfeeding" },
-      { value: "no-answer", label: "Prefer not to answer" },
+      { value: "pregnant", label: "Yes, I'm pregnant", emoji: "🤰" },
+      { value: "no", label: "No", emoji: "🙅‍♀️" },
+      { value: "breastfeeding", label: "Breastfeeding", emoji: "🤱" },
+      { value: "no-answer", label: "Prefer not to answer", emoji: "🤐" },
     ],
   },
   {
@@ -249,9 +267,10 @@ export const STEPS: QuizStep[] = [
     id: "dark-circles",
     section: "lifestyle",
     title: "Do you have dark circles or wrinkles under your eyes?",
+    layout: "list",
     options: [
-      { value: "yes", label: "Yes" },
-      { value: "no", label: "No" },
+      { value: "yes", label: "Yes", emoji: "😔" },
+      { value: "no", label: "No", emoji: "😊" },
     ],
   },
   {
@@ -269,11 +288,12 @@ export const STEPS: QuizStep[] = [
     id: "added-sugar",
     section: "nutrition",
     title: "Do you eat products with added sugar?",
+    layout: "list",
     options: [
-      { value: "everyday", label: "Everyday" },
-      { value: "often", label: "Often" },
-      { value: "sometimes", label: "Sometimes" },
-      { value: "never", label: "Never" },
+      { value: "everyday", label: "Everyday", emoji: "🍰" },
+      { value: "often", label: "Often", emoji: "🍪" },
+      { value: "sometimes", label: "Sometimes", emoji: "🍫" },
+      { value: "never", label: "Never", emoji: "🚫" },
     ],
   },
   {
@@ -281,11 +301,12 @@ export const STEPS: QuizStep[] = [
     id: "salt",
     section: "nutrition",
     title: "How much salt do you generally use?",
+    layout: "list",
     options: [
-      { value: "love", label: "I love salty food" },
-      { value: "moderate", label: "In moderate amounts" },
-      { value: "not-much", label: "Not much" },
-      { value: "none", label: "I don't add salt" },
+      { value: "love", label: "I love salty food", emoji: "🧂" },
+      { value: "moderate", label: "In moderate amounts", emoji: "🍲" },
+      { value: "not-much", label: "Not much", emoji: "🥄" },
+      { value: "none", label: "I don't add salt", emoji: "🚫" },
     ],
   },
   {
@@ -293,11 +314,12 @@ export const STEPS: QuizStep[] = [
     id: "vegetables",
     section: "nutrition",
     title: "How often do you eat vegetables?",
+    layout: "list",
     options: [
-      { value: "everyday", label: "Everyday" },
-      { value: "often", label: "Often" },
-      { value: "sometimes", label: "Sometimes" },
-      { value: "never", label: "Never" },
+      { value: "everyday", label: "Everyday", emoji: "🥦" },
+      { value: "often", label: "Often", emoji: "🥕" },
+      { value: "sometimes", label: "Sometimes", emoji: "🥗" },
+      { value: "never", label: "Never", emoji: "🚫" },
     ],
   },
   {
@@ -305,11 +327,12 @@ export const STEPS: QuizStep[] = [
     id: "water",
     section: "nutrition",
     title: "How many glasses of water do you drink per day?",
+    layout: "list",
     options: [
-      { value: "1-2", label: "1-2 glasses" },
-      { value: "2-4", label: "2-4 glasses" },
-      { value: "5-9", label: "5-9 glasses" },
-      { value: "none", label: "I don't drink pure water" },
+      { value: "1-2", label: "1-2 glasses", emoji: "💧" },
+      { value: "2-4", label: "2-4 glasses", emoji: "🥤" },
+      { value: "5-9", label: "5-9 glasses", emoji: "🚰" },
+      { value: "none", label: "I don't drink pure water", emoji: "🚫" },
     ],
   },
   {
@@ -317,11 +340,12 @@ export const STEPS: QuizStep[] = [
     id: "puffy-morning",
     section: "nutrition",
     title: "Do you swell or get puffy in the morning?",
+    layout: "list",
     options: [
-      { value: "yes-often", label: "Yes, often" },
-      { value: "sometimes", label: "Sometimes" },
-      { value: "rarely", label: "Rarely" },
-      { value: "never", label: "No, never" },
+      { value: "yes-often", label: "Yes, often", emoji: "😵‍💫" },
+      { value: "sometimes", label: "Sometimes", emoji: "😕" },
+      { value: "rarely", label: "Rarely", emoji: "🙂" },
+      { value: "never", label: "No, never", emoji: "😊" },
     ],
   },
   {
@@ -340,11 +364,12 @@ export const STEPS: QuizStep[] = [
     id: "oily-shine",
     section: "skin",
     title: "Do you notice an oily shine on your face?",
+    layout: "list",
     options: [
-      { value: "never", label: "No, never" },
-      { value: "occasionally", label: "Occasionally" },
-      { value: "t-zone", label: "Only in my T-zone" },
-      { value: "all-over", label: "Yes, all over my face" },
+      { value: "never", label: "No, never", emoji: "😊" },
+      { value: "occasionally", label: "Occasionally", emoji: "🙂" },
+      { value: "t-zone", label: "Only in my T-zone", emoji: "🔆" },
+      { value: "all-over", label: "Yes, all over my face", emoji: "✨" },
     ],
   },
   {
@@ -352,11 +377,12 @@ export const STEPS: QuizStep[] = [
     id: "after-cleansing",
     section: "skin",
     title: "How do you feel after cleansing your face?",
+    layout: "list",
     options: [
-      { value: "fine", label: "Just fine" },
-      { value: "tightness", label: "Tightness in the cheek area" },
-      { value: "moisturizing", label: "Uncomfortable, I need more moisturizing" },
-      { value: "cleansing", label: "Uncomfortable, I need more deep cleansing" },
+      { value: "fine", label: "Just fine", emoji: "😌" },
+      { value: "tightness", label: "Tightness in the cheek area", emoji: "😬" },
+      { value: "moisturizing", label: "Uncomfortable, I need more moisturizing", emoji: "💧" },
+      { value: "cleansing", label: "Uncomfortable, I need more deep cleansing", emoji: "🧼" },
     ],
   },
   {
@@ -364,10 +390,11 @@ export const STEPS: QuizStep[] = [
     id: "acne-prone",
     section: "skin",
     title: "Do you agree that your skin is acne-prone?",
+    layout: "list",
     options: [
-      { value: "no", label: "No" },
-      { value: "yes", label: "Yes" },
-      { value: "t-zone", label: "Only in my T-zone" },
+      { value: "no", label: "No", emoji: "😊" },
+      { value: "yes", label: "Yes", emoji: "😔" },
+      { value: "t-zone", label: "Only in my T-zone", emoji: "🔆" },
     ],
   },
   {
@@ -375,9 +402,10 @@ export const STEPS: QuizStep[] = [
     id: "uneven-texture",
     section: "skin",
     title: "Do you agree that your skin has an uneven texture?",
+    layout: "list",
     options: [
-      { value: "no", label: "No" },
-      { value: "yes", label: "Yes" },
+      { value: "no", label: "No", emoji: "😊" },
+      { value: "yes", label: "Yes", emoji: "😔" },
     ],
   },
   {
@@ -385,9 +413,10 @@ export const STEPS: QuizStep[] = [
     id: "stress-face",
     section: "skin",
     title: "Does stress show on your face?",
+    layout: "list",
     options: [
-      { value: "no", label: "No" },
-      { value: "yes", label: "Yes" },
+      { value: "no", label: "No", emoji: "😌" },
+      { value: "yes", label: "Yes", emoji: "😣" },
     ],
     note: {
       title: "Did you know?",
@@ -399,15 +428,16 @@ export const STEPS: QuizStep[] = [
     id: "allergies",
     section: "skin",
     title: "Do you have any ingredient allergies?",
+    layout: "list",
     options: [
-      { value: "fragrances", label: "Fragrances" },
-      { value: "alcohol", label: "Alcohol" },
-      { value: "essential-oils", label: "Essential oils" },
-      { value: "retinol", label: "Retinol" },
-      { value: "vitamin-c", label: "Vitamin C" },
-      { value: "acids", label: "Acids" },
-      { value: "sulfates", label: "Sulfates" },
-      { value: "none", label: "None of above" },
+      { value: "fragrances", label: "Fragrances", emoji: "🌸" },
+      { value: "alcohol", label: "Alcohol", emoji: "🧴" },
+      { value: "essential-oils", label: "Essential oils", emoji: "🪔" },
+      { value: "retinol", label: "Retinol", emoji: "💊" },
+      { value: "vitamin-c", label: "Vitamin C", emoji: "🍊" },
+      { value: "acids", label: "Acids", emoji: "🧪" },
+      { value: "sulfates", label: "Sulfates", emoji: "🫧" },
+      { value: "none", label: "None of above", emoji: "✨" },
     ],
   },
   {
@@ -415,11 +445,12 @@ export const STEPS: QuizStep[] = [
     id: "skin-color",
     section: "skin",
     title: "How would you best identify your skin color?",
+    layout: "list",
     options: [
-      { value: "sand", label: "Sand or Warm ivory" },
-      { value: "fair", label: "Fair or Pale ivory" },
-      { value: "olive", label: "Olive or Light brown" },
-      { value: "brown", label: "Brown or Black brown" },
+      { value: "sand", label: "Sand or Warm ivory", emoji: "🌝" },
+      { value: "fair", label: "Fair or Pale ivory", emoji: "🤍" },
+      { value: "olive", label: "Olive or Light brown", emoji: "🫒" },
+      { value: "brown", label: "Brown or Black brown", emoji: "🤎" },
     ],
   },
   {
@@ -427,16 +458,17 @@ export const STEPS: QuizStep[] = [
     id: "skin-problems",
     section: "skin",
     title: "Do you experience any of these skin problems?",
+    layout: "list",
     options: [
-      { value: "acne", label: "Acne, post-acne and scars" },
-      { value: "wrinkles", label: "Wrinkles" },
-      { value: "dullness", label: "Dullness" },
-      { value: "pigmentation", label: "Pigmentation" },
-      { value: "texture", label: "Texture issues" },
-      { value: "firmness", label: "Loss of firmness" },
-      { value: "redness", label: "Redness/rosacea" },
-      { value: "sensitive", label: "Sensitive skin" },
-      { value: "fine", label: "My skin is just fine" },
+      { value: "acne", label: "Acne, post-acne and scars", emoji: "🔴" },
+      { value: "wrinkles", label: "Wrinkles", emoji: "〰️" },
+      { value: "dullness", label: "Dullness", emoji: "😶" },
+      { value: "pigmentation", label: "Pigmentation", emoji: "🟤" },
+      { value: "texture", label: "Texture issues", emoji: "🪨" },
+      { value: "firmness", label: "Loss of firmness", emoji: "🎈" },
+      { value: "redness", label: "Redness/rosacea", emoji: "🌹" },
+      { value: "sensitive", label: "Sensitive skin", emoji: "🪶" },
+      { value: "fine", label: "My skin is just fine", emoji: "✨" },
     ],
   },
   {
@@ -444,13 +476,14 @@ export const STEPS: QuizStep[] = [
     id: "skincare-goals",
     section: "skin",
     title: "What are your skincare goals?",
+    layout: "list",
     options: [
-      { value: "moisturizing", label: "Moisturizing" },
-      { value: "anti-aging", label: "Anti-aging" },
-      { value: "oil-control", label: "Oil control" },
-      { value: "pores", label: "Reducing pores" },
-      { value: "acne", label: "Acne treatment" },
-      { value: "soothing", label: "Soothing sensitive skin" },
+      { value: "moisturizing", label: "Moisturizing", emoji: "💧" },
+      { value: "anti-aging", label: "Anti-aging", emoji: "⏳" },
+      { value: "oil-control", label: "Oil control", emoji: "🪞" },
+      { value: "pores", label: "Reducing pores", emoji: "🔬" },
+      { value: "acne", label: "Acne treatment", emoji: "🔴" },
+      { value: "soothing", label: "Soothing sensitive skin", emoji: "🪶" },
     ],
   },
   {
@@ -477,13 +510,14 @@ export const STEPS: QuizStep[] = [
     id: "age",
     section: "feelings",
     title: "Let's get to know each other What's your age?",
+    layout: "grid",
     options: [
-      { value: "18-24", label: "18-24" },
-      { value: "25-34", label: "25-34" },
-      { value: "35-44", label: "35-44" },
-      { value: "45-54", label: "45-54" },
-      { value: "55-64", label: "55-64" },
-      { value: "65+", label: "65+" },
+      { value: "18-24", label: "18-24", emoji: "🌷" },
+      { value: "25-34", label: "25-34", emoji: "🌸" },
+      { value: "35-44", label: "35-44", emoji: "🌺" },
+      { value: "45-54", label: "45-54", emoji: "🌻" },
+      { value: "55-64", label: "55-64", emoji: "🌹" },
+      { value: "65+", label: "65+", emoji: "💐" },
     ],
   },
   {
@@ -491,13 +525,14 @@ export const STEPS: QuizStep[] = [
     id: "face-shape",
     section: "feelings",
     title: "How would you describe your face shape?",
+    layout: "grid",
     options: [
-      { value: "oval", label: "Oval" },
-      { value: "square", label: "Square" },
-      { value: "round", label: "Round" },
-      { value: "diamond", label: "Diamond" },
-      { value: "rectangular", label: "Rectangular" },
-      { value: "triangle", label: "Triangle" },
+      { value: "oval", label: "Oval", emoji: "🥚" },
+      { value: "square", label: "Square", emoji: "⬛" },
+      { value: "round", label: "Round", emoji: "⚪" },
+      { value: "diamond", label: "Diamond", emoji: "💎" },
+      { value: "rectangular", label: "Rectangular", emoji: "▭" },
+      { value: "triangle", label: "Triangle", emoji: "🔺" },
     ],
   },
   {
@@ -506,6 +541,7 @@ export const STEPS: QuizStep[] = [
     section: "feelings",
     title: "“I'm unhappy with a specific area of my face”",
     image: "/quiz/feel-area.png",
+    layout: "list",
     options: [
       { value: "yes", label: "Yes" },
       { value: "no", label: "No" },
@@ -517,6 +553,7 @@ export const STEPS: QuizStep[] = [
     section: "feelings",
     title: "“I want to have a more sculpted jawline”",
     image: "/quiz/feel-jawline.png",
+    layout: "list",
     options: [
       { value: "yes", label: "Yes" },
       { value: "no", label: "No" },
@@ -528,6 +565,7 @@ export const STEPS: QuizStep[] = [
     section: "feelings",
     title: "“Only plastic surgery can transform my face”",
     image: "/quiz/feel-surgery.png",
+    layout: "list",
     options: [
       { value: "yes", label: "Yes" },
       { value: "no", label: "No" },
@@ -539,6 +577,7 @@ export const STEPS: QuizStep[] = [
     section: "feelings",
     title: "“I'm afraid I will lose my beauty as I age”",
     image: "/quiz/feel-beauty.png",
+    layout: "list",
     options: [
       { value: "yes", label: "Yes, totally" },
       { value: "no", label: "No, not at all" },
@@ -550,6 +589,7 @@ export const STEPS: QuizStep[] = [
     section: "feelings",
     title: "“My appearance is the reason why I'm stressed”",
     image: "/quiz/feel-stress.png",
+    layout: "list",
     options: [
       { value: "yes", label: "Yes, totally" },
       { value: "no", label: "No, not at all" },
@@ -560,12 +600,13 @@ export const STEPS: QuizStep[] = [
     id: "add-to-plan",
     section: "feelings",
     title: "What you'd like to add to your plan?",
+    layout: "list",
     options: [
-      { value: "mewing", label: "Mewing" },
-      { value: "face-yoga", label: "Face Yoga" },
-      { value: "face-fitness", label: "Face Fitness" },
-      { value: "glowing", label: "Glowing" },
-      { value: "12-step", label: "12-Step face care routine" },
+      { value: "mewing", label: "Mewing", emoji: "😶" },
+      { value: "face-yoga", label: "Face Yoga", emoji: "🧘‍♀️" },
+      { value: "face-fitness", label: "Face Fitness", emoji: "💪" },
+      { value: "glowing", label: "Glowing", emoji: "✨" },
+      { value: "12-step", label: "12-Step face care routine", emoji: "🧴" },
     ],
   },
 

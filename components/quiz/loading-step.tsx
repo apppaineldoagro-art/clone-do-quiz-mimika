@@ -54,7 +54,7 @@ export function LoadingStep({ onComplete }: Props) {
 
       <div className="relative mt-7 w-full max-w-sm">
         <Image
-          src="/quiz/before-after.png"
+          src="/quiz/before-after.webp"
           alt="Comparação antes e depois do programa"
           width={560}
           height={520}

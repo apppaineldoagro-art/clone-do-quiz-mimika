@@ -89,10 +89,10 @@ export const STEPS: QuizStep[] = [
     title: "What age-related change worries you the most?",
     layout: "grid",
     options: [
-      { value: "drooping", label: "Facial Drooping", icon: "/quiz/icon-drooping.png" },
-      { value: "sagging", label: "Sagging skin or Wrinkles", icon: "/quiz/icon-sagging.png" },
-      { value: "fat", label: "Excess Fat or Puffiness", icon: "/quiz/icon-fat.png" },
-      { value: "imbalance", label: "Imbalance in Proportions", icon: "/quiz/icon-imbalance.png" },
+      { value: "drooping", label: "Facial Drooping", icon: "/quiz/icon-drooping.webp" },
+      { value: "sagging", label: "Sagging skin or Wrinkles", icon: "/quiz/icon-sagging.webp" },
+      { value: "fat", label: "Excess Fat or Puffiness", icon: "/quiz/icon-fat.webp" },
+      { value: "imbalance", label: "Imbalance in Proportions", icon: "/quiz/icon-imbalance.webp" },
     ],
   },
   {
@@ -152,7 +152,7 @@ export const STEPS: QuizStep[] = [
     id: "customizing",
     section: "goals",
     title: "We're customizing the program to suit you",
-    image: "/quiz/customizing.png",
+    image: "/quiz/customizing.webp",
     cta: "Let's increase my program fit!",
   },
 
@@ -185,7 +185,7 @@ export const STEPS: QuizStep[] = [
     section: "lifestyle",
     title: "Mimika will suit your schedule!",
     body: "We value your time",
-    image: "/quiz/schedule.png",
+    image: "/quiz/schedule.webp",
     stat: { value: "68% of our users", label: "prefer to exercise in the morning" },
     cta: "Next",
   },
@@ -360,7 +360,7 @@ export const STEPS: QuizStep[] = [
     section: "skin",
     title: "Do you know your skin type?",
     body: "Take a simple test to receive your personal program with useful recommendations",
-    image: "/quiz/skintype.png",
+    image: "/quiz/skintype.webp",
     cta: "Let's go!",
   },
 
@@ -505,7 +505,7 @@ export const STEPS: QuizStep[] = [
     id: "changes",
     section: "skin",
     title: "See noticeable changes in 4 weeks",
-    image: "/quiz/changes.png",
+    image: "/quiz/changes.webp",
     body: "Keep moving — Do simple routine daily and enjoy long-lasting results",
     cta: "Great!",
   },
@@ -546,7 +546,7 @@ export const STEPS: QuizStep[] = [
     id: "feel-area",
     section: "feelings",
     title: "“I'm unhappy with a specific area of my face”",
-    image: "/quiz/feel-area.png",
+    image: "/quiz/feel-area.webp",
     layout: "list",
     options: [
       { value: "yes", label: "Yes" },
@@ -558,7 +558,7 @@ export const STEPS: QuizStep[] = [
     id: "feel-jawline",
     section: "feelings",
     title: "“I want to have a more sculpted jawline”",
-    image: "/quiz/feel-jawline.png",
+    image: "/quiz/feel-jawline.webp",
     layout: "list",
     options: [
       { value: "yes", label: "Yes" },
@@ -570,7 +570,7 @@ export const STEPS: QuizStep[] = [
     id: "feel-surgery",
     section: "feelings",
     title: "“Only plastic surgery can transform my face”",
-    image: "/quiz/feel-surgery.png",
+    image: "/quiz/feel-surgery.webp",
     layout: "list",
     options: [
       { value: "yes", label: "Yes" },
@@ -582,7 +582,7 @@ export const STEPS: QuizStep[] = [
     id: "feel-beauty",
     section: "feelings",
     title: "“I'm afraid I will lose my beauty as I age”",
-    image: "/quiz/feel-beauty.png",
+    image: "/quiz/feel-beauty.webp",
     layout: "list",
     options: [
       { value: "yes", label: "Yes, totally" },
@@ -594,7 +594,7 @@ export const STEPS: QuizStep[] = [
     id: "feel-stress",
     section: "feelings",
     title: "“My appearance is the reason why I'm stressed”",
-    image: "/quiz/feel-stress.png",
+    image: "/quiz/feel-stress.webp",
     layout: "list",
     options: [
       { value: "yes", label: "Yes, totally" },

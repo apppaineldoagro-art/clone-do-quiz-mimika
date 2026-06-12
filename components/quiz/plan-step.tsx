@@ -46,13 +46,13 @@ export function PlanStep() {
       <div className="my-6 grid grid-cols-2 gap-3">
         <div className="overflow-hidden rounded-2xl border border-border bg-card">
           <div className="relative aspect-square w-full bg-muted">
-            <Image src="/quiz/result-before.png" alt="Before" fill className="object-cover" sizes="240px" />
+            <Image src="/quiz/result-before.webp" alt="Before" fill className="object-cover" sizes="240px" />
           </div>
           <p className="py-2 text-center text-xs font-medium uppercase tracking-wide text-muted-foreground">Now</p>
         </div>
         <div className="overflow-hidden rounded-2xl border-2 border-primary bg-card">
           <div className="relative aspect-square w-full bg-muted">
-            <Image src="/quiz/result-after.png" alt="After" fill className="object-cover" sizes="240px" />
+            <Image src="/quiz/result-after.webp" alt="After" fill className="object-cover" sizes="240px" />
           </div>
           <p className="py-2 text-center text-xs font-semibold uppercase tracking-wide text-primary">
             After 28 days

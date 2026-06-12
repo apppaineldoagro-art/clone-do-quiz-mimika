@@ -22,7 +22,7 @@ export function IntroStep({ onStart }: Props) {
 
       <div className="relative my-7 aspect-[4/3] w-full max-w-md overflow-hidden rounded-3xl bg-muted">
         <Image
-          src="/quiz/intro-hero.png"
+          src="/quiz/intro-hero.webp"
           alt="Woman practicing face yoga"
           fill
           priority

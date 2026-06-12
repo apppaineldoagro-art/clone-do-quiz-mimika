@@ -16,7 +16,7 @@ export function SocialProofStep({ onNext }: Props) {
 
       <div className="mt-6 flex items-center justify-center gap-3">
         <Image
-          src="/quiz/laurel-left.png"
+          src="/quiz/laurel-left.webp"
           alt=""
           width={40}
           height={56}
@@ -31,7 +31,7 @@ export function SocialProofStep({ onNext }: Props) {
           </span>
         </div>
         <Image
-          src="/quiz/laurel-right.png"
+          src="/quiz/laurel-right.webp"
           alt=""
           width={40}
           height={56}
@@ -42,7 +42,7 @@ export function SocialProofStep({ onNext }: Props) {
 
       <div className="relative mt-6 w-full max-w-md overflow-hidden rounded-3xl">
         <Image
-          src="/quiz/social-collage.png"
+          src="/quiz/social-collage.webp"
           alt="Mulheres felizes que usam o Mimika"
           width={640}
           height={760}

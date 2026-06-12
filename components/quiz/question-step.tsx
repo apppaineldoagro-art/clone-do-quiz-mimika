@@ -19,12 +19,12 @@ export function QuestionStep({ step, value, onSelect }: Props) {
   return (
     <div className="flex flex-col">
       {step.image && (
-        <div className="mx-auto mb-5 h-40 w-40 overflow-hidden rounded-3xl bg-muted">
+        <div className="mx-auto mb-5 h-44 w-44 overflow-hidden rounded-3xl bg-muted">
           <Image
             src={step.image || "/placeholder.svg"}
             alt=""
-            width={320}
-            height={320}
+            width={352}
+            height={352}
             className="h-full w-full object-cover"
           />
         </div>
@@ -49,20 +49,17 @@ export function QuestionStep({ step, value, onSelect }: Props) {
                 type="button"
                 onClick={() => onSelect(opt.value)}
                 className={cn(
-                  "relative flex flex-col items-center justify-center gap-3 rounded-2xl border-2 bg-card px-4 py-8 text-center transition-all",
-                  selected
-                    ? "border-primary bg-accent/40 ring-2 ring-primary/20"
-                    : "border-border hover:border-primary/50 hover:bg-accent/20",
+                  "relative flex flex-col items-center justify-center gap-3 rounded-2xl px-4 py-8 text-center transition-all",
+                  selected ? "bg-accent ring-2 ring-primary" : "bg-secondary hover:bg-accent/60",
                 )}
               >
                 <span
                   className={cn(
-                    "absolute right-3 top-3 flex h-6 w-6 items-center justify-center border-2 transition",
-                    isMulti ? "rounded-md" : "rounded-full",
-                    selected ? "border-primary bg-primary text-primary-foreground" : "border-border bg-card",
+                    "absolute right-3 top-3 flex h-5 w-5 items-center justify-center rounded-md border transition",
+                    selected ? "border-primary bg-primary text-primary-foreground" : "border-muted-foreground/30 bg-card",
                   )}
                 >
-                  {selected && <Check className="h-4 w-4" />}
+                  {selected && <Check className="h-3.5 w-3.5" strokeWidth={3} />}
                 </span>
                 {opt.emoji && <span className="text-4xl leading-none">{opt.emoji}</span>}
                 <span className="text-base font-medium leading-tight text-foreground">{opt.label}</span>
@@ -80,23 +77,24 @@ export function QuestionStep({ step, value, onSelect }: Props) {
                 type="button"
                 onClick={() => onSelect(opt.value)}
                 className={cn(
-                  "flex items-center gap-3 rounded-2xl border-2 bg-card px-4 py-4 text-left transition-all",
-                  selected
-                    ? "border-primary bg-accent/40 ring-2 ring-primary/20"
-                    : "border-border hover:border-primary/50 hover:bg-accent/20",
+                  "flex items-center gap-3 rounded-2xl px-5 py-4 text-left transition-all",
+                  selected ? "bg-accent ring-2 ring-primary" : "bg-secondary hover:bg-accent/60",
                 )}
               >
                 {opt.emoji && <span className="text-2xl leading-none">{opt.emoji}</span>}
                 <span className="flex-1 text-base font-medium text-foreground">{opt.label}</span>
-                <span
-                  className={cn(
-                    "flex h-6 w-6 shrink-0 items-center justify-center border-2 transition",
-                    isMulti ? "rounded-md" : "rounded-full",
-                    selected ? "border-primary bg-primary text-primary-foreground" : "border-border",
-                  )}
-                >
-                  {selected && <Check className="h-4 w-4" />}
-                </span>
+                {isMulti && (
+                  <span
+                    className={cn(
+                      "flex h-6 w-6 shrink-0 items-center justify-center rounded-md border transition",
+                      selected
+                        ? "border-primary bg-primary text-primary-foreground"
+                        : "border-muted-foreground/30 bg-card",
+                    )}
+                  >
+                    {selected && <Check className="h-4 w-4" strokeWidth={3} />}
+                  </span>
+                )}
               </button>
             )
           })}

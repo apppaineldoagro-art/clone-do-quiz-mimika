@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react"
 import { STEPS, SECTIONS, type QuizStep } from "@/lib/quiz-data"
 import { QuizHeader } from "./quiz-header"
 import { IntroStep } from "./intro-step"
+import { SocialProofStep } from "./social-proof-step"
 import { QuestionStep } from "./question-step"
 import { InfoStep } from "./info-step"
 import { LoadingStep } from "./loading-step"
@@ -94,6 +95,8 @@ export function QuizFlow() {
     switch (s.type) {
       case "intro":
         return <IntroStep onStart={goNext} />
+      case "social":
+        return <SocialProofStep onNext={goNext} />
       case "single":
       case "multi":
         return <QuestionStep step={s} value={answers[s.id]} onSelect={handleSelect} />
@@ -117,7 +120,11 @@ export function QuizFlow() {
     }
   }
 
-  const showHeader = step.type !== "intro" && step.type !== "plan"
+  const showHeader =
+    step.type !== "intro" &&
+    step.type !== "social" &&
+    step.type !== "loading" &&
+    step.type !== "plan"
   const isMulti = step.type === "multi"
   const multiHasSelection = isMulti && ((answers[step.id] as string[]) ?? []).length > 0
 

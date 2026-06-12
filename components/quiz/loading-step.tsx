@@ -1,26 +1,19 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { Check } from "lucide-react"
-import { cn } from "@/lib/utils"
+import { Loader2 } from "lucide-react"
+import Image from "next/image"
 
 type Props = {
   onComplete: () => void
 }
-
-const TASKS = [
-  "Analyzing your goals",
-  "Evaluating your skin profile",
-  "Reviewing your lifestyle",
-  "Building your face yoga program",
-]
 
 export function LoadingStep({ onComplete }: Props) {
   const [progress, setProgress] = useState(0)
 
   useEffect(() => {
     const start = Date.now()
-    const duration = 5200
+    const duration = 5000
     const interval = setInterval(() => {
       const elapsed = Date.now() - start
       const pct = Math.min(100, Math.round((elapsed / duration) * 100))
@@ -33,67 +26,49 @@ export function LoadingStep({ onComplete }: Props) {
     return () => clearInterval(interval)
   }, [onComplete])
 
-  const radius = 54
-  const circumference = 2 * Math.PI * radius
-
   return (
     <div className="flex flex-col items-center text-center">
-      <h1 className="text-balance font-heading text-2xl font-semibold leading-tight text-foreground sm:text-3xl">
-        Creating your personalized program
-      </h1>
-      <p className="mt-2 text-sm text-muted-foreground">This will only take a moment…</p>
-
-      <div className="relative my-9 flex h-40 w-40 items-center justify-center">
-        <svg className="h-full w-full -rotate-90" viewBox="0 0 120 120">
-          <circle cx="60" cy="60" r={radius} className="fill-none stroke-muted" strokeWidth="10" />
-          <circle
-            cx="60"
-            cy="60"
-            r={radius}
-            className="fill-none stroke-primary transition-all duration-100 ease-linear"
-            strokeWidth="10"
-            strokeLinecap="round"
-            strokeDasharray={circumference}
-            strokeDashoffset={circumference - (progress / 100) * circumference}
-          />
-        </svg>
-        <span className="absolute text-3xl font-semibold text-foreground">{progress}%</span>
+      <div className="flex items-center gap-2">
+        <span className="text-xl">🌿</span>
+        <span className="font-heading text-2xl font-semibold text-foreground">Mimika</span>
       </div>
 
-      <ul className="flex w-full max-w-sm flex-col gap-3">
-        {TASKS.map((task, i) => {
-          const threshold = ((i + 1) / TASKS.length) * 100
-          const done = progress >= threshold
-          const active = progress >= (i / TASKS.length) * 100 && !done
-          return (
-            <li
-              key={task}
-              className={cn(
-                "flex items-center gap-3 rounded-xl border px-4 py-3 text-left text-sm transition",
-                done
-                  ? "border-primary/30 bg-accent/40 text-foreground"
-                  : active
-                    ? "border-border bg-card text-foreground"
-                    : "border-border bg-card text-muted-foreground",
-              )}
-            >
-              <span
-                className={cn(
-                  "flex h-6 w-6 shrink-0 items-center justify-center rounded-full transition",
-                  done ? "bg-primary text-primary-foreground" : "bg-muted",
-                )}
-              >
-                {done ? (
-                  <Check className="h-4 w-4" />
-                ) : active ? (
-                  <span className="h-2.5 w-2.5 animate-pulse rounded-full bg-primary" />
-                ) : null}
-              </span>
-              <span className="font-medium">{task}</span>
-            </li>
-          )
-        })}
-      </ul>
+      <h1 className="mt-5 text-balance px-2 font-heading text-2xl font-semibold leading-tight text-foreground sm:text-3xl">
+        Beleza sem Stress: Recupere o seu aspeto fresco
+      </h1>
+
+      <div className="mt-6 w-full max-w-md">
+        <div className="relative h-6 w-full overflow-hidden rounded-full bg-muted">
+          <div
+            className="flex h-full items-center justify-center rounded-full bg-primary text-xs font-semibold text-primary-foreground transition-all duration-100 ease-linear"
+            style={{ width: `${progress}%` }}
+          >
+            <span className="px-2">{progress}%</span>
+          </div>
+        </div>
+        <p className="mt-3 flex items-center justify-center gap-2 text-sm text-muted-foreground">
+          <Loader2 className="h-4 w-4 animate-spin text-primary" />
+          Carregando o teste...
+        </p>
+      </div>
+
+      <div className="relative mt-7 w-full max-w-sm">
+        <Image
+          src="/quiz/before-after.png"
+          alt="Comparação antes e depois do programa"
+          width={560}
+          height={520}
+          priority
+          className="h-auto w-full object-contain"
+          sizes="(max-width: 640px) 100vw, 360px"
+        />
+        <span className="absolute bottom-12 left-6 rounded-full bg-background/90 px-3 py-1 text-xs font-semibold text-foreground shadow">
+          Dia 1
+        </span>
+        <span className="absolute right-8 top-10 rounded-full bg-background/90 px-3 py-1 text-xs font-semibold text-foreground shadow">
+          Dia 28
+        </span>
+      </div>
     </div>
   )
 }

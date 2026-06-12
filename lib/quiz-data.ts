@@ -24,6 +24,10 @@ export type QuizStep =
       id: string
     }
   | {
+      type: "social"
+      id: string
+    }
+  | {
       type: "single" | "multi"
       id: string
       section: string
@@ -64,6 +68,7 @@ export type QuizStep =
 
 export const STEPS: QuizStep[] = [
   { type: "intro", id: "intro" },
+  { type: "social", id: "social-proof" },
 
   // ---- GOALS ----
   {

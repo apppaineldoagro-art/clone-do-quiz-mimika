@@ -52,7 +52,6 @@ export function QuizFlow() {
       case "intro":
         return <IntroStep onStart={goNext} />
       case "single":
-      case "age":
       case "multi":
         return <QuestionStep step={s} value={answers[s.id]} onSelect={handleSelect} />
       case "info":

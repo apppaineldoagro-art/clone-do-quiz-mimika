@@ -20,7 +20,7 @@ export function InfoStep({ step, onNext }: Props) {
         <div className="relative my-6 aspect-[4/3] w-full max-w-md overflow-hidden rounded-3xl bg-muted">
           <Image
             src={step.image || "/placeholder.svg"}
-            alt={step.title}
+            alt=""
             fill
             className="object-cover"
             sizes="(max-width: 640px) 100vw, 480px"
@@ -28,12 +28,21 @@ export function InfoStep({ step, onNext }: Props) {
         </div>
       )}
 
-      <p className="max-w-md text-pretty text-base leading-relaxed text-muted-foreground">
-        {step.body}
-      </p>
+      {step.body && (
+        <div className="max-w-md text-pretty text-base leading-relaxed text-muted-foreground">
+          {step.body.split("\n\n").map((para, i) => (
+            <p key={i} className={i > 0 ? "mt-4" : undefined}>
+              {para}
+            </p>
+          ))}
+        </div>
+      )}
 
-      {step.source && (
-        <p className="mt-3 text-xs italic text-muted-foreground/70">{step.source}</p>
+      {step.stat && (
+        <div className="mt-6 rounded-2xl border border-border bg-secondary/50 px-6 py-5">
+          <p className="font-heading text-2xl font-semibold text-primary">{step.stat.value}</p>
+          <p className="mt-1 text-sm text-muted-foreground">{step.stat.label}</p>
+        </div>
       )}
 
       <Button
